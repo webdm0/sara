@@ -47,7 +47,6 @@
   padding: calc(3 * var(--closing-unit)) calc(13 * var(--closing-unit));
   border: 0;
   border-radius: calc(7 * var(--closing-unit));
-  color: #6c6b6b;
   font-size: clamp(17px, 2.084vw, 30px);
   line-height: 1.2;
 }

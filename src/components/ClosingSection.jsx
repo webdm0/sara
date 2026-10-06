@@ -96,7 +96,12 @@ function StoreBadge({ href, src, label, width, height }) {
   );
 
   return href ? (
-    <a className="download-store relative block shrink-0" href={href}>
+    <a
+      className="download-store relative block shrink-0"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+    >
       {image}
     </a>
   ) : (
@@ -191,6 +196,8 @@ export default function ClosingSection() {
             <a
               className="download-panel__video block w-fit font-bold no-underline"
               href={applicationLinks.presentation}
+              target="_blank"
+              rel="noreferrer"
             >
               Відео Презентація
             </a>

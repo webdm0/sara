@@ -6,11 +6,13 @@ export const contact = {
   managerName: "Евгений",
   instagram: "https://www.instagram.com/",
   telegram: "https://t.me/+hPxOlXq2mDplYTEy",
+  supplierRegistration:
+    "https://sarafan-market.space/uk/knowledge/register",
 };
 
 export const applicationLinks = {
-  appStore: null,
-  googlePlay: null,
-  presentation: null,
+  appStore: "https://sarafan7km.onelink.me/lORs/supler",
+  googlePlay: "https://sarafan7km.onelink.me/lORs/supler",
+  presentation: "https://youtu.be/suG6YsQF848",
   cms: "#supplier-form",
 };

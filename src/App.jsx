@@ -6,6 +6,7 @@ import CrmSection from "./components/CrmSection";
 import SupplierFitSection from "./components/SupplierFitSection";
 import ClosingSection from "./components/ClosingSection";
 import SiteFooter from "./components/SiteFooter";
+import { contact } from "./config/contact";
 
 const benefits = [
   {
@@ -56,7 +57,7 @@ function Header() {
         </a>
 
         <a
-          href="#supplier-form"
+          href={contact.supplierRegistration}
           className="supplier-link flex shrink-0 items-center justify-between bg-gradient-to-r from-[#FFE743] to-[#FFDE2D] font-bold text-black no-underline transition-opacity hover:opacity-90 active:scale-95"
         >
           <span>Стати Постачальником</span>
