@@ -1,3 +1,4 @@
+import { assetPath } from "../config/assets";
 import "./MarketSections.css";
 
 export default function MarketComparison() {
@@ -15,7 +16,9 @@ export default function MarketComparison() {
           <div className="market-visual">
             <img
               className="market-visual__image"
-              src="/Оптовый%20рынок%20с%20контейнерными%20рядами%201.webp"
+              src={assetPath(
+                "Оптовый%20рынок%20с%20контейнерными%20рядами%201.webp",
+              )}
               alt="Контейнерні ряди та складська інфраструктура ринку 7км"
               width="634"
               height="290"
@@ -30,7 +33,12 @@ export default function MarketComparison() {
         </figure>
 
         <div className="comparison-arrow" aria-hidden="true">
-          <img src="/arrow.svg" alt="" width="331" height="162" />
+          <img
+            src={assetPath("arrow.svg")}
+            alt=""
+            width="331"
+            height="162"
+          />
         </div>
 
         <figure className="market-panel market-panel--digital">
@@ -42,7 +50,9 @@ export default function MarketComparison() {
           <div className="market-visual">
             <img
               className="market-visual__image"
-              src="/Цифровая%20карта%20над%20оптовым%20рынком%201.webp"
+              src={assetPath(
+                "Цифровая%20карта%20над%20оптовым%20рынком%201.webp",
+              )}
               alt="Цифрова карта ринку з позначками категорій товарів"
               width="691"
               height="347"

@@ -6,12 +6,13 @@ import CrmSection from "./components/CrmSection";
 import SupplierFitSection from "./components/SupplierFitSection";
 import ClosingSection from "./components/ClosingSection";
 import SiteFooter from "./components/SiteFooter";
+import { assetPath } from "./config/assets";
 import { contact } from "./config/contact";
 
 const benefits = [
   {
     title: "РОЗДРІБ",
-    image: "/rozdrib.webp",
+    image: assetPath("rozdrib.webp"),
     imageAlt: "Одяг, взуття та аксесуари для роздрібних покупок",
     width: 260,
     height: 196,
@@ -19,7 +20,7 @@ const benefits = [
   },
   {
     title: "ОПТ",
-    image: "/opt.webp",
+    image: assetPath("opt.webp"),
     imageAlt: "Коробки з товарами для оптових покупок",
     width: 282,
     height: 188,
@@ -27,7 +28,7 @@ const benefits = [
   },
   {
     title: "ДРОП",
-    image: "/drop.webp",
+    image: assetPath("drop.webp"),
     imageAlt: "Логотип Like Drop",
     width: 300,
     height: 300,
@@ -46,7 +47,7 @@ function Header() {
         >
           <img
             className="brand-logo shrink-0 object-contain"
-            src="/logo.mini%202.webp"
+            src={assetPath("logo.mini%202.webp")}
             width="69"
             height="69"
             alt=""
@@ -122,7 +123,7 @@ function App() {
             <div className="hero-artwork min-w-0">
               <img
                 className="hero-group block w-full h-auto"
-                src="/hero-group.webp"
+                src={assetPath("hero-group.webp")}
                 alt="Застосунок Sarafan: роздрібні покупки та товари для бізнесу"
                 width="681"
                 height="779"
@@ -132,7 +133,7 @@ function App() {
 
             <img
               className="hero-tag hero-tag--large absolute pointer-events-none"
-              src="/tag-big.svg"
+              src={assetPath("tag-big.svg")}
               width="235"
               height="242"
               alt=""
@@ -151,7 +152,7 @@ function App() {
                 <div className="trade-zone-row relative flex items-center justify-end">
                   <img
                     className="hero-tag hero-tag--small absolute pointer-events-none"
-                    src="/tag-small.svg"
+                    src={assetPath("tag-small.svg")}
                     width="106"
                     height="87"
                     alt=""

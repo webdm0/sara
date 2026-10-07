@@ -1,5 +1,6 @@
 import ArrowIcon from "./ArrowIcon";
 import { applicationLinks } from "../config/contact";
+import { assetPath } from "../config/assets";
 import "./CrmSection.css";
 
 const services = [
@@ -32,7 +33,7 @@ export default function CrmSection() {
           <figure className="crm-laptop relative min-w-0">
             <img
               className="block h-auto w-full"
-              src="/laptop.webp"
+              src={assetPath("laptop.webp")}
               alt="Інтерфейс SARA CRM на ноутбуці"
               width="499"
               height="388"
@@ -44,7 +45,7 @@ export default function CrmSection() {
           <div className="crm-apps relative min-w-0">
             <img
               className="crm-apps__curve pointer-events-none absolute"
-              src="/arrow-curve.svg"
+              src={assetPath("arrow-curve.svg")}
               alt=""
               aria-hidden="true"
               width="75"
@@ -57,7 +58,7 @@ export default function CrmSection() {
               <li className="crm-app-tile grid place-items-center bg-white">
                 <img
                   className="crm-app-tile__icon object-contain"
-                  src="/inst.webp"
+                  src={assetPath("inst.webp")}
                   alt="Instagram"
                   width="183"
                   height="168"
@@ -68,7 +69,7 @@ export default function CrmSection() {
               <li className="crm-app-tile grid place-items-center bg-white">
                 <img
                   className="crm-app-tile__icon object-contain"
-                  src="/tg.webp"
+                  src={assetPath("tg.webp")}
                   alt="Telegram"
                   width="189"
                   height="177"
@@ -88,7 +89,7 @@ export default function CrmSection() {
           <div className="crm-divider relative self-stretch" aria-hidden="true">
             <img
               className="absolute"
-              src="/divider-dashed.svg"
+              src={assetPath("divider-dashed.svg")}
               alt=""
               width="5"
               height="353"

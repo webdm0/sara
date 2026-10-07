@@ -1,3 +1,4 @@
+import { assetPath } from "../config/assets";
 import "./SupplierFitSection.css";
 
 const supplierTypes = [
@@ -69,7 +70,7 @@ export default function SupplierFitSection() {
 
           <img
             className="supplier-fit__crown pointer-events-none absolute"
-            src="/crown-1.webp"
+            src={assetPath("crown-1.webp")}
             width="259"
             height="230"
             alt=""
@@ -108,7 +109,7 @@ export default function SupplierFitSection() {
 
           <img
             className="supplier-fit__girl pointer-events-none"
-            src="/girl.webp"
+            src={assetPath("girl.webp")}
             width="213"
             height="345"
             alt="Представниця постачальника"

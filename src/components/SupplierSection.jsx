@@ -1,3 +1,4 @@
+import { assetPath } from "../config/assets";
 import "./MarketSections.css";
 
 const supplierBenefits = [
@@ -54,7 +55,7 @@ export default function SupplierSection() {
           <div className="supplier-showcase__market-wrap">
             <figure className="supplier-showcase__market">
               <img
-                src="/virtual-shop.webp"
+                src={assetPath("virtual-shop.webp")}
                 alt="Торгові вулиці з категоріями одягу, взуття та господарчих товарів"
                 width="903"
                 height="453"
@@ -67,7 +68,7 @@ export default function SupplierSection() {
             </figure>
             <img
               className="supplier-showcase__logo"
-              src="/big-logo.webp"
+              src={assetPath("big-logo.webp")}
               alt=""
               aria-hidden="true"
               width="280"
@@ -79,7 +80,7 @@ export default function SupplierSection() {
 
           <figure className="supplier-showcase__shop">
             <img
-              src="/digital-shop.webp"
+              src={assetPath("digital-shop.webp")}
               alt="Магазин у застосунку Sarafan з картою ринку та картками товарів"
               width="574"
               height="567"

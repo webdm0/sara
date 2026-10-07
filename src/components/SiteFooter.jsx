@@ -1,4 +1,5 @@
 import { contact } from "../config/contact";
+import { assetPath } from "../config/assets";
 import "./SiteFooter.css";
 
 export default function SiteFooter() {
@@ -21,7 +22,7 @@ export default function SiteFooter() {
         </address>
         <img
           className="site-footer__planet h-auto"
-          src="/network.webp"
+          src={assetPath("network.webp")}
           width="104"
           height="104"
           alt=""
@@ -41,7 +42,7 @@ export default function SiteFooter() {
           aria-label="Sarafan — головна сторінка"
         >
           <img
-            src="/big-logo.webp"
+            src={assetPath("big-logo.webp")}
             width="69"
             height="69"
             alt=""
@@ -60,7 +61,7 @@ export default function SiteFooter() {
           aria-label="Telegram"
         >
           <img
-            src="/tg.webp"
+            src={assetPath("tg.webp")}
             width="189"
             height="177"
             alt=""
@@ -76,7 +77,7 @@ export default function SiteFooter() {
           aria-label="Instagram"
         >
           <img
-            src="/inst.webp"
+            src={assetPath("inst.webp")}
             width="183"
             height="168"
             alt=""

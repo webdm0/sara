@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { assetPath } from "../config/assets";
 import { applicationLinks, contact } from "../config/contact";
 import "./ClosingSection.css";
 
@@ -146,7 +147,7 @@ export default function ClosingSection() {
       >
         <img
           className="closing-section__phone pointer-events-none absolute z-10 h-auto"
-          src="/iPhone%2016%20Pro.webp"
+          src={assetPath("iPhone%2016%20Pro.webp")}
           width="429"
           height="773"
           alt="Магазин постачальника в застосунку Сарафан 7км"
@@ -156,7 +157,7 @@ export default function ClosingSection() {
 
         <img
           className="download-panel__sticker h-auto w-full"
-          src="/sticker-7km-sparks.webp"
+          src={assetPath("sticker-7km-sparks.webp")}
           width="379"
           height="328"
           alt="Сарафан 7км"
@@ -177,14 +178,14 @@ export default function ClosingSection() {
             <div className="download-panel__badges flex items-center">
               <StoreBadge
                 href={applicationLinks.appStore}
-                src="/app-store.webp"
+                src={assetPath("app-store.webp")}
                 label="Завантажити в App Store"
                 width="166"
                 height="77"
               />
               <StoreBadge
                 href={applicationLinks.googlePlay}
-                src="/google.webp"
+                src={assetPath("google.webp")}
                 label="Завантажити в Google Play"
                 width="146"
                 height="49"
