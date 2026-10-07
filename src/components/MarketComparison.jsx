@@ -9,7 +9,10 @@ export default function MarketComparison() {
       </h2>
 
       <div className="comparison-grid">
-        <figure className="market-panel market-panel--physical">
+        <figure
+          className="market-panel market-panel--physical"
+          data-reveal="left"
+        >
           <figcaption>
             <h3 className="market-panel__title">Ринок 7км 2000х</h3>
           </figcaption>
@@ -32,16 +35,20 @@ export default function MarketComparison() {
           </div>
         </figure>
 
-        <div className="comparison-arrow" aria-hidden="true">
-          <img
-            src={assetPath("arrow.svg")}
-            alt=""
-            width="331"
-            height="162"
-          />
+        <div
+          className="comparison-arrow"
+          aria-hidden="true"
+          data-reveal="scale"
+          data-reveal-delay="1"
+        >
+          <img src={assetPath("arrow.svg")} alt="" width="331" height="162" />
         </div>
 
-        <figure className="market-panel market-panel--digital">
+        <figure
+          className="market-panel market-panel--digital"
+          data-reveal="right"
+          data-reveal-delay="1"
+        >
           <figcaption>
             <h3 className="market-panel__title market-panel__title--digital">
               <span>Цифровий Ринок XXI -</span> Сарафан 7км
@@ -59,9 +66,7 @@ export default function MarketComparison() {
               loading="lazy"
               decoding="async"
             />
-            <p className="digital-market-label">
-              Цифровий Шар - Сарафан 7км
-            </p>
+            <p className="digital-market-label">Цифровий Шар - Сарафан 7км</p>
           </div>
         </figure>
       </div>

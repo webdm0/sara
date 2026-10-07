@@ -25,12 +25,16 @@ export default function CrmSection() {
       aria-labelledby="crm-title"
     >
       <div className="crm-section__inner">
-        <h2 id="crm-title" className="crm-title text-center font-extrabold">
+        <h2
+          id="crm-title"
+          className="crm-title text-center font-extrabold"
+          data-reveal
+        >
           SARA CRM - операційна система ринку
         </h2>
 
         <div className="crm-layout grid items-center">
-          <figure className="crm-laptop relative min-w-0">
+          <figure className="crm-laptop relative min-w-0" data-reveal="left">
             <img
               className="block h-auto w-full"
               src={assetPath("laptop.webp")}
@@ -42,7 +46,11 @@ export default function CrmSection() {
             />
           </figure>
 
-          <div className="crm-apps relative min-w-0">
+          <div
+            className="crm-apps relative min-w-0"
+            data-reveal="scale"
+            data-reveal-delay="1"
+          >
             <img
               className="crm-apps__curve pointer-events-none absolute"
               src={assetPath("arrow-curve.svg")}
@@ -100,8 +108,13 @@ export default function CrmSection() {
             className="crm-services grid min-w-0"
             aria-label="Можливості SARA CRM"
           >
-            {services.map(({ title, description }) => (
-              <li key={title} className="crm-service min-w-0 bg-white">
+            {services.map(({ title, description }, index) => (
+              <li
+                key={title}
+                className="crm-service min-w-0 bg-white"
+                data-reveal="right"
+                data-reveal-delay={String(index)}
+              >
                 <h3 className="font-bold">{title}</h3>
                 <p>{description}</p>
               </li>
@@ -112,6 +125,7 @@ export default function CrmSection() {
         <a
           className="crm-banner grid items-center bg-gradient-to-r from-[#FFE743] to-[#FFDE2D] text-black no-underline hover:opacity-90 active:scale-95"
           href={applicationLinks.cms}
+          data-reveal
         >
           <p className="text-center font-bold">
             Власний Інтернет Магазин на SARA CMS

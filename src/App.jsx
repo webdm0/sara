@@ -8,6 +8,7 @@ import ClosingSection from "./components/ClosingSection";
 import SiteFooter from "./components/SiteFooter";
 import { assetPath } from "./config/assets";
 import { contact } from "./config/contact";
+import useScrollReveal from "./hooks/useScrollReveal";
 
 const benefits = [
   {
@@ -76,9 +77,14 @@ function BenefitCard({
   imageClassName,
   width,
   height,
+  revealDelay,
 }) {
   return (
-    <li className="benefit-card">
+    <li
+      className="benefit-card"
+      data-reveal
+      data-reveal-delay={revealDelay}
+    >
       <p className="benefit-card__label flex flex-col">
         <strong>0%</strong>
         <span>{title}</span>
@@ -95,6 +101,8 @@ function BenefitCard({
 }
 
 function App() {
+  useScrollReveal();
+
   return (
     <div id="top" className="site-shell w-full min-h-svh">
       <Header />
@@ -106,7 +114,7 @@ function App() {
         >
           <div className="hero-stage grid relative">
             <div className="hero-copy">
-              <h1 id="hero-title" className="hero-title">
+              <h1 id="hero-title" className="hero-title" data-reveal="soft">
                 <span className="hero-title__line">
                   ПРОДАВАЙТЕ <mark>ОПТОМ</mark>,
                 </span>{" "}
@@ -114,13 +122,17 @@ function App() {
                 <span className="hero-title__line">ДРОПЕРІВ</span>
               </h1>
 
-              <p className="hero-commission">
+              <p className="hero-commission" data-reveal data-reveal-delay="1">
                 <strong>Комісія 0%</strong>
                 <span>назавжди.</span>
               </p>
             </div>
 
-            <div className="hero-artwork min-w-0">
+            <div
+              className="hero-artwork min-w-0"
+              data-reveal="soft-scale"
+              data-reveal-delay="1"
+            >
               <img
                 className="hero-group block w-full h-auto"
                 src={assetPath("hero-group.webp")}
@@ -143,13 +155,16 @@ function App() {
 
           <div className="hero-market">
             <div className="hero-market__inner">
-              <div className="market-copy relative">
+              <div className="market-copy relative" data-reveal>
                 <p>Не маркетплейс.</p>
                 <strong>ЦИФРОВИЙ РИНОК</strong>
               </div>
 
               <div className="hero-bottom relative">
-                <div className="trade-zone-row relative flex items-center justify-end">
+                <div
+                  className="trade-zone-row relative flex items-center justify-end"
+                  data-reveal
+                >
                   <img
                     className="hero-tag hero-tag--small absolute pointer-events-none"
                     src={assetPath("tag-small.svg")}
@@ -164,8 +179,12 @@ function App() {
                 </div>
 
                 <ul className="benefits-grid grid grid-cols-3" id="supplier">
-                  {benefits.map((benefit) => (
-                    <BenefitCard key={benefit.title} {...benefit} />
+                  {benefits.map((benefit, index) => (
+                    <BenefitCard
+                      key={benefit.title}
+                      {...benefit}
+                      revealDelay={index ? String(index) : undefined}
+                    />
                   ))}
                 </ul>
               </div>

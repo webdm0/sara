@@ -58,6 +58,67 @@ a:focus-visible {
   outline-offset: 5px;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    translate: 0 32px;
+    transition:
+      opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+      translate 750ms cubic-bezier(0.22, 1, 0.36, 1),
+      scale 750ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js [data-reveal="left"] {
+    translate: -38px 0;
+  }
+
+  .js [data-reveal="right"] {
+    translate: 38px 0;
+  }
+
+  .js [data-reveal="scale"] {
+    translate: none;
+    scale: 0.94;
+  }
+
+  .js [data-reveal="soft"] {
+    opacity: 1;
+  }
+
+  .js [data-reveal="soft-scale"] {
+    opacity: 1;
+    translate: none;
+    scale: 0.97;
+  }
+
+  .js [data-reveal].is-revealed {
+    opacity: 1;
+    translate: none;
+    scale: none;
+  }
+
+  [data-reveal-delay="1"] {
+    --reveal-delay: 80ms;
+  }
+
+  [data-reveal-delay="2"] {
+    --reveal-delay: 160ms;
+  }
+
+  [data-reveal-delay="3"] {
+    --reveal-delay: 240ms;
+  }
+
+  [data-reveal-delay="4"] {
+    --reveal-delay: 320ms;
+  }
+
+  [data-reveal-delay="5"] {
+    --reveal-delay: 400ms;
+  }
+}
+
 @supports not (overflow: clip) {
   body,
   #root {

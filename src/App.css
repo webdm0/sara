@@ -71,6 +71,19 @@
   --art-width: min(calc(494 * 100cqw / 1056), 640px);
 }
 
+@supports not (width: 1cqw) {
+  .header-content,
+  .hero-stage,
+  .hero-market {
+    --unit: min(calc(100vw / 1056), 1.15px);
+  }
+
+  .hero-stage,
+  .hero-market {
+    --art-width: min(calc(494 * 100vw / 1056), 640px);
+  }
+}
+
 .hero-stage {
   grid-template-columns: minmax(0, 1fr);
   min-height: calc(390 * var(--art-width) / 494);

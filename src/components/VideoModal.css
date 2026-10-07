@@ -1,0 +1,135 @@
+.video-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: clamp(16px, 4vw, 48px);
+  background: rgb(4 10 14 / 82%);
+  backdrop-filter: blur(8px);
+  animation: video-modal-backdrop-in 180ms ease-out both;
+}
+
+.video-modal__dialog {
+  width: min(100%, 1100px);
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: clamp(14px, 2vw, 24px);
+  background: #111c22;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 55%);
+  color: #fff;
+  animation: video-modal-dialog-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.video-modal__header {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 10px clamp(18px, 3vw, 30px);
+  gap: 20px;
+}
+
+.video-modal__header h2 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.video-modal__close {
+  display: grid;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 9%);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.video-modal__close:hover {
+  background: rgb(255 255 255 / 18%);
+  transform: rotate(4deg);
+}
+
+.video-modal__close:focus-visible {
+  outline: 3px solid #ffe338;
+  outline-offset: 2px;
+}
+
+.video-modal__close svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.video-modal__player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background:
+    radial-gradient(circle, rgb(255 227 56 / 25%) 0 3px, transparent 4px)
+      center / 18px 18px,
+    #05090b;
+}
+
+.video-modal__player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@keyframes video-modal-backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes video-modal-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+  .video-modal {
+    align-items: safe center;
+  }
+
+  .video-modal__dialog {
+    width: min(100%, 120dvh, 1100px);
+  }
+}
+
+@media (max-width: 560px) {
+  .video-modal {
+    padding: 10px;
+  }
+
+  .video-modal__dialog {
+    border-radius: 14px;
+  }
+
+  .video-modal__header {
+    min-height: 54px;
+    padding-left: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-modal,
+  .video-modal__dialog {
+    animation: none;
+  }
+}

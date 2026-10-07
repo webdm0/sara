@@ -54,14 +54,20 @@ export default function SupplierFitSection() {
         <h2
           id="supplier-fit-title"
           className="supplier-fit__title text-center font-extrabold uppercase"
+          data-reveal
         >
           Хто може стати постачальником
         </h2>
 
         <div className="supplier-fit__types relative bg-gradient-to-r from-[#E8F8FF] to-[#DBF3FD]">
           <ul className="supplier-fit__types-grid grid">
-            {supplierTypes.map(({ title, description }) => (
-              <li className="supplier-fit__type min-w-0 bg-white" key={title}>
+            {supplierTypes.map(({ title, description }, index) => (
+              <li
+                className="supplier-fit__type min-w-0 bg-white"
+                key={title}
+                data-reveal
+                data-reveal-delay={String(index)}
+              >
                 <h3 className="font-semibold">{title}</h3>
                 <p>{description}</p>
               </li>
@@ -80,20 +86,28 @@ export default function SupplierFitSection() {
           />
         </div>
 
-        <p className="supplier-fit__question text-center font-extrabold uppercase">
+        <p
+          className="supplier-fit__question text-center font-extrabold uppercase"
+          data-reveal
+        >
           Підходите за параметрами?
         </p>
 
-        <p className="supplier-fit__offer bg-gradient-to-r from-[#FFE743] to-[#FFDE2D] text-center font-bold uppercase">
+        <p
+          className="supplier-fit__offer bg-gradient-to-r from-[#FFE743] to-[#FFDE2D] text-center font-bold uppercase"
+          data-reveal
+        >
           Отримайте власну адресу на цифровому ринку
         </p>
 
         <div className="supplier-fit__advantages relative">
           <ul className="supplier-fit__advantages-grid grid">
-            {advantages.map(({ title, lines, color }) => (
+            {advantages.map(({ title, lines, color }, index) => (
               <li
                 className={`supplier-fit__advantage supplier-fit__advantage--${color} min-w-0`}
                 key={title}
+                data-reveal
+                data-reveal-delay={String(index)}
               >
                 <h3 className="font-extrabold uppercase">{title}</h3>
                 <p>
@@ -115,6 +129,8 @@ export default function SupplierFitSection() {
             alt="Представниця постачальника"
             loading="lazy"
             decoding="async"
+            data-reveal
+            data-reveal-delay="1"
           />
         </div>
       </div>

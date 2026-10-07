@@ -37,7 +37,7 @@ export default function SupplierSection() {
       className="supplier-section"
       aria-labelledby="digital-market-title"
     >
-      <div className="supplier-section__heading">
+      <div className="supplier-section__heading" data-reveal>
         <h2 id="digital-market-title">
           <span className="supplier-section__title">Цифровий Ринок</span>{" "}
           <span className="supplier-section__subtitle">
@@ -47,12 +47,12 @@ export default function SupplierSection() {
       </div>
 
       <div className="supplier-section__content">
-        <p className="supplier-section__intro">
+        <p className="supplier-section__intro" data-reveal>
           Створіть ВАШ Віртуальний Магазин
         </p>
 
         <div className="supplier-showcase">
-          <div className="supplier-showcase__market-wrap">
+          <div className="supplier-showcase__market-wrap" data-reveal="left">
             <figure className="supplier-showcase__market">
               <img
                 src={assetPath("virtual-shop.webp")}
@@ -78,7 +78,11 @@ export default function SupplierSection() {
             />
           </div>
 
-          <figure className="supplier-showcase__shop">
+          <figure
+            className="supplier-showcase__shop"
+            data-reveal="right"
+            data-reveal-delay="1"
+          >
             <img
               src={assetPath("digital-shop.webp")}
               alt="Магазин у застосунку Sarafan з картою ринку та картками товарів"
@@ -97,12 +101,21 @@ export default function SupplierSection() {
           className="supplier-rewards"
           aria-labelledby="supplier-rewards-title"
         >
-          <h3 id="supplier-rewards-title" className="supplier-rewards-title">
+          <h3
+            id="supplier-rewards-title"
+            className="supplier-rewards-title"
+            data-reveal
+          >
             Що отримує постачальник
           </h3>
           <ol className="supplier-benefits-grid" role="list">
             {supplierBenefits.map(({ title, description }, index) => (
-              <li className="supplier-benefit" key={title}>
+              <li
+                className="supplier-benefit"
+                key={title}
+                data-reveal
+                data-reveal-delay={String(index % 2)}
+              >
                 <span className="supplier-benefit__number" aria-hidden="true">
                   {index + 1}
                 </span>

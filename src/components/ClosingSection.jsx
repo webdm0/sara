@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { assetPath } from "../config/assets";
 import { applicationLinks, contact } from "../config/contact";
+import VideoModal from "./VideoModal";
 import "./ClosingSection.css";
 
 function SupplierForm() {
@@ -18,6 +19,8 @@ function SupplierForm() {
       className="supplier-form grid min-w-0"
       aria-label="Отримати умови для постачальника"
       onSubmit={handleSubmit}
+      data-reveal
+      data-reveal-delay="1"
     >
       <label className="block">
         <span className="sr-only">Ім’я</span>
@@ -116,102 +119,126 @@ function StoreBadge({ href, src, label, width, height }) {
 }
 
 export default function ClosingSection() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const videoButtonRef = useRef(null);
+
+  const closeVideo = useCallback(() => {
+    setIsVideoOpen(false);
+    window.requestAnimationFrame(() => videoButtonRef.current?.focus());
+  }, []);
+
   return (
-    <section
-      className="closing-section relative isolate"
-      aria-labelledby="invitation-title"
-    >
-      <div className="supplier-invitation bg-[#FFE338]">
-        <h2
-          id="invitation-title"
-          className="supplier-invitation__title text-center font-bold uppercase"
-        >
-          Запрошуємо стати частиною єдиної зони вільної торгівлі
-        </h2>
-        <div className="supplier-invitation__body grid items-start">
-          <ul
-            className="supplier-invitation__roles min-w-0 font-bold uppercase"
-            aria-label="Для кого"
-          >
-            <li>Виробник?</li>
-            <li>Імпортер?</li>
-            <li>Дистриб’ютор?</li>
-          </ul>
-          <SupplierForm />
-        </div>
-      </div>
-
-      <div
-        className="download-panel grid items-center text-white"
-        aria-labelledby="download-title"
+    <>
+      <section
+        className="closing-section relative isolate"
+        aria-labelledby="invitation-title"
       >
-        <img
-          className="closing-section__phone pointer-events-none absolute z-10 h-auto"
-          src={assetPath("iPhone%2016%20Pro.webp")}
-          width="429"
-          height="773"
-          alt="Магазин постачальника в застосунку Сарафан 7км"
-          loading="lazy"
-          decoding="async"
-        />
-
-        <img
-          className="download-panel__sticker h-auto w-full"
-          src={assetPath("sticker-7km-sparks.webp")}
-          width="379"
-          height="328"
-          alt="Сарафан 7км"
-          loading="lazy"
-          decoding="async"
-        />
-
-        <div className="download-panel__content min-w-0">
-          <h3 id="download-title" className="download-panel__title font-bold">
-            <span className="block">ВЕСЬ 7км -</span>
-            <span className="block">у вашому смартфоні!</span>
-          </h3>
-          <div className="download-panel__stores flex items-center bg-[var(--yellow)] text-black">
-            <p className="download-panel__label font-bold">
-              Завантажити <br />
-              Застосунок
-            </p>
-            <div className="download-panel__badges flex items-center">
-              <StoreBadge
-                href={applicationLinks.appStore}
-                src={assetPath("app-store.webp")}
-                label="Завантажити в App Store"
-                width="166"
-                height="77"
-              />
-              <StoreBadge
-                href={applicationLinks.googlePlay}
-                src={assetPath("google.webp")}
-                label="Завантажити в Google Play"
-                width="146"
-                height="49"
-              />
-            </div>
+        <div className="supplier-invitation bg-[#FFE338]">
+          <h2
+            id="invitation-title"
+            className="supplier-invitation__title text-center font-bold uppercase"
+            data-reveal
+          >
+            Запрошуємо стати частиною єдиної зони вільної торгівлі
+          </h2>
+          <div className="supplier-invitation__body grid items-start">
+            <ul
+              className="supplier-invitation__roles min-w-0 font-bold uppercase"
+              aria-label="Для кого"
+              data-reveal
+            >
+              <li>Виробник?</li>
+              <li>Імпортер?</li>
+              <li>Дистриб’ютор?</li>
+            </ul>
+            <SupplierForm />
           </div>
-
-          {applicationLinks.presentation ? (
-            <a
-              className="download-panel__video block w-fit font-bold no-underline"
-              href={applicationLinks.presentation}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Відео Презентація
-            </a>
-          ) : (
-            <span
-              className="download-panel__video block w-fit font-bold"
-              aria-disabled="true"
-            >
-              Відео Презентація
-            </span>
-          )}
         </div>
-      </div>
-    </section>
+
+        <div
+          className="download-panel grid items-center text-white"
+          aria-labelledby="download-title"
+        >
+          <img
+            className="closing-section__phone pointer-events-none absolute z-10 h-auto"
+            src={assetPath("iPhone%2016%20Pro.webp")}
+            width="429"
+            height="773"
+            alt="Магазин постачальника в застосунку Сарафан 7км"
+            loading="lazy"
+            decoding="async"
+            data-reveal
+            data-reveal-delay="1"
+          />
+
+          <img
+            className="download-panel__sticker h-auto w-full"
+            src={assetPath("sticker-7km-sparks.webp")}
+            width="379"
+            height="328"
+            alt="Сарафан 7км"
+            loading="lazy"
+            decoding="async"
+            data-reveal="left"
+          />
+
+          <div className="download-panel__content min-w-0" data-reveal="right">
+            <h3 id="download-title" className="download-panel__title font-bold">
+              <span className="block">ВЕСЬ 7км -</span>
+              <span className="block">у вашому смартфоні!</span>
+            </h3>
+            <div className="download-panel__stores flex items-center bg-[var(--yellow)] text-black">
+              <p className="download-panel__label font-bold">
+                Завантажити <br />
+                Застосунок
+              </p>
+              <div className="download-panel__badges flex items-center">
+                <StoreBadge
+                  href={applicationLinks.appStore}
+                  src={assetPath("app-store.webp")}
+                  label="Завантажити в App Store"
+                  width="166"
+                  height="77"
+                />
+                <StoreBadge
+                  href={applicationLinks.googlePlay}
+                  src={assetPath("google.webp")}
+                  label="Завантажити в Google Play"
+                  width="146"
+                  height="49"
+                />
+              </div>
+            </div>
+
+            {applicationLinks.presentationVideoId ? (
+              <button
+                ref={videoButtonRef}
+                className="download-panel__video block w-fit font-bold no-underline"
+                type="button"
+                aria-haspopup="dialog"
+                aria-expanded={isVideoOpen}
+                onClick={() => setIsVideoOpen(true)}
+              >
+                Відео Презентація
+              </button>
+            ) : (
+              <span
+                className="download-panel__video block w-fit font-bold"
+                aria-disabled="true"
+              >
+                Відео Презентація
+              </span>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <VideoModal
+        isOpen={isVideoOpen}
+        onClose={closeVideo}
+        videoId={applicationLinks.presentationVideoId}
+        title="Відео презентація Sarafan 7км"
+      />
+    </>
   );
 }

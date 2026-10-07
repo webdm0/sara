@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run check:compat",
+    "check:compat": "node scripts/check-browser-compat.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },

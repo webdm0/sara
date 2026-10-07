@@ -140,11 +140,16 @@
   padding: calc(4 * var(--closing-unit)) calc(14 * var(--closing-unit));
   border: calc(2 * var(--closing-unit)) solid #c9d4d9;
   border-radius: calc(6 * var(--closing-unit));
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
   font-size: clamp(21px, 2.431vw, 35px);
+  font-weight: 700;
   line-height: 1.15;
 }
 
-.download-panel__video[href]:hover {
+.download-panel__video:not([aria-disabled="true"]):hover {
   background: rgb(255 255 255 / 10%);
 }
 

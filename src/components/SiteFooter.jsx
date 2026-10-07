@@ -5,7 +5,10 @@ import "./SiteFooter.css";
 export default function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div className="site-footer__contacts grid items-center bg-white font-bold">
+      <div
+        className="site-footer__contacts grid items-center bg-white font-bold"
+        data-reveal
+      >
         <address className="site-footer__address min-w-0 not-italic">
           <a
             className="block w-fit no-underline hover:underline"
@@ -35,7 +38,11 @@ export default function SiteFooter() {
           <span className="block">{contact.managerName}</span>
         </p>
       </div>
-      <nav className="site-footer__bottom" aria-label="Посилання Sarafan">
+      <nav
+        className="site-footer__bottom"
+        aria-label="Посилання Sarafan"
+        data-reveal
+      >
         <a
           className="site-footer__brand-link"
           href={contact.website}
